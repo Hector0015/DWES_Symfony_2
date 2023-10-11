@@ -11,15 +11,15 @@ class ContactoController extends AbstractController
 {
     private $contactos = [
 
-        1 => ["nombre" => "Juan Pérez", "telefono" => "524142432", "email" => "juanp@ieselcaminas.org"],
+        1 => ["nombre" => "Bulbasaur", "numero" => "0001", "Tipo" => "planta/veneno"],
 
-        2 => ["nombre" => "Ana López", "telefono" => "58958448", "email" => "anita@ieselcaminas.org"],
+        8 => ["nombre" => "Wartortle López", "numero" => "0008", "Tipo" => "agua"],
 
-        5 => ["nombre" => "Mario Montero", "telefono" => "5326824", "email" => "mario.mont@ieselcaminas.org"],
+        6 => ["nombre" => "Charizard", "numero" => "0006", "Tipo" => "fuego/volador"],
 
-        7 => ["nombre" => "Laura Martínez", "telefono" => "42898966", "email" => "lm2000@ieselcaminas.org"],
+        23 => ["nombre" => "Ekans", "numero" => "0023", "Tipo" => "veneno"],
 
-        9 => ["nombre" => "Nora Jover", "telefono" => "54565859", "email" => "norajover@ieselcaminas.org"]
+        9 => ["nombre" => "Nora Jover", "numero" => "54565859", "Tipo" => "norajover@ieselcaminas.org"]
 
     ];     
 

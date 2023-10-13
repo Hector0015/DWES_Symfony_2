@@ -6,6 +6,9 @@ use Doctrine\ORM\Query\Expr\Func;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Contacto;
+use Doctrine\Persistence\ManagerRegistry;
+
 
 class ContactoController extends AbstractController
 {
@@ -13,26 +16,29 @@ class ContactoController extends AbstractController
 
         1 => ["nombre" => "Bulbasaur", "numero" => "0001", "Tipo" => "planta/veneno"],
 
-        8 => ["nombre" => "Wartortle López", "numero" => "0008", "Tipo" => "agua"],
+        8 => ["nombre" => "Wartortle", "numero" => "0008", "Tipo" => "agua"],
 
         6 => ["nombre" => "Charizard", "numero" => "0006", "Tipo" => "fuego/volador"],
 
         23 => ["nombre" => "Ekans", "numero" => "0023", "Tipo" => "veneno"],
 
-        9 => ["nombre" => "Nora Jover", "numero" => "54565859", "Tipo" => "norajover@ieselcaminas.org"]
+        15 => ["nombre" => "Beedril", "numero" => "0015", "Tipo" => "bicho/veneno"]
 
     ];     
 
+    
+
     #[Route('/contacto/{codigo}', name: 'ficha_contacto')]
-        public function ficha($codigo): Response{
+        public function ficha(ManagerRegistry $doctrine, $codigo): Response{
             $resultado = ($this->contactos[$codigo] ?? null);
 
-            return $this->render('ficha_contacto.html.twig', [
+
+            return $this->render('ficha_contactos.html.twig', [
                 'contacto' => $resultado
             ]);
         }
         #[Route('/contacto/buscar/{texto}', name: 'buscar_contacto')]
-        public function buscar($texto): Response{
+        public function buscar(ManagerRegistry $doctrine, $texto): Response{
             $resultados = array_filter($this->contactos,
                 function ($contacto) use ($texto){
                     return strpos($contacto["nombre"], $texto) !== FALSE;

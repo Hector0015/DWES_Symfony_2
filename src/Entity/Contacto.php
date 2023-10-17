@@ -22,6 +22,9 @@ class Contacto
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\ManyToOne(inversedBy: 'contactos')]
+    private ?Region $region = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Contacto
     public function setEmail(string $email): static
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getRegion(): ?Region
+    {
+        return $this->region;
+    }
+
+    public function setRegion(?Region $region): static
+    {
+        $this->region = $region;
 
         return $this;
     }
